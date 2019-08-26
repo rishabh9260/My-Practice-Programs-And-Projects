@@ -6,7 +6,6 @@ Purpose: Assignment Two -- Rocky Dry Cleaners windowed application
 Date: 31 May 2019
 */
 
-import java.awt.Component;
 import java.awt.FlowLayout;
 import java.awt.Font;
 
@@ -25,7 +24,8 @@ import javax.swing.JScrollPane;
 
 public class RockyDryCleanersGUI extends JFrame implements ActionListener {
 
-	final int MAX_ORDER = 10;		//Constant for the  maximum number of orders acceptable
+	private static final long serialVersionUID = 1L;
+	final int MAX_ORDER = 10; // Constant for the maximum number of orders acceptable
 	private Order[] orderArray = new Order[MAX_ORDER];		//Declaring array of Order objects with size MAX_ORDER
 	private int currentOrder = 0;		//variable to tell the current order number
 

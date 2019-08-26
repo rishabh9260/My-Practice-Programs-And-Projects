@@ -32,5 +32,8 @@ public class Week2{
         System.out.println("Customer name: " + customerName);
         System.out.println("Number of garments: " + numberOfGarments);
         System.out.printf("Total charge: $%.2f", totalCharge);
+
+        inNumber.close();
+        inText.close();
     }
 }

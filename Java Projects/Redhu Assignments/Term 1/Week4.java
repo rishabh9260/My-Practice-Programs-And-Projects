@@ -64,5 +64,8 @@ public class Week4{
 
         System.out.printf("The average number of garments per customer is %.2f\n", average);
         System.out.printf("The total charges collected is $%.2f\n", totalCharge);
+
+        inNumber.close();
+        inText.close();
     }
 }
