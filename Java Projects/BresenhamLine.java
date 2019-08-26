@@ -9,13 +9,13 @@ import javax.swing.WindowConstants;
 public class BresenhamLine {
  
     public static void main(String[] args) {
-        SwingUtilities.invokeLater(Bresenham::run);
+        SwingUtilities.invokeLater(BresenhamLine::run);
     }
  
     private static void run() {
         JFrame f = new JFrame();
         f.setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
-        f.setTitle("Bresenham");
+        f.setTitle("Bresenham Line");
  
         f.getContentPane().add(new BresenhamPanel());
         f.pack();
@@ -27,6 +27,7 @@ public class BresenhamLine {
  
 class BresenhamPanel extends JPanel {
  
+    private static final long serialVersionUID = 1L;
     private final int pixelSize = 1;
  
     BresenhamPanel() {
