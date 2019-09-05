@@ -16,7 +16,7 @@ char pop(char stack[])
     return a;
 }
 
-int prec(char a)
+int precedence(char a)
 {
     if(a=='^' || a=='%') return 3;
     else if(a=='*' || a=='/') return 2;
@@ -57,7 +57,11 @@ int main()
         }
         else
         {
-            while(prec(exp[i])<=prec(stack[strlen(stack)-1]))
+            while(precedence(exp[i])<=precedence(stack[strlen(stack)-1]))
+        
+    
+        
+    
             {
                 char a = pop(stack);
                 post+=a;
