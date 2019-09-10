@@ -6,23 +6,20 @@ int main()
 {
     int n;
     cin>>n;
-    int a[n],b[n];
+    int a[n],b[2*n],c[n];
     for(int i=0;i<n;i++)
     {
         cin>>a[i];
+        b[i]=i+1;
+        b[n+i]=i+1;
     }
-
     for(int i=0;i<n;i++)
         {
-            int k=n;
-            for(int j=i;k--;j++)
-                {
-                    if(j>n)
-                        b[i] = a[i] + n-j-1;
-                    else
-                        b[i] = a[i] + j+1;
-                }
-            cout<<*max_element(&b[0], &b[n])<<" ";
+            for(int j=i,k=0;j<n && k<n;j++,k++)
+            {
+                c[k] = a[k] + b[j];
+            }
+            cout<<*max_element(&c[0], &c[n])<<" ";
         }
     return 0;
 }
