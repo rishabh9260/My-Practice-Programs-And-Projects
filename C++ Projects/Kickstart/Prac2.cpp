@@ -24,13 +24,14 @@ int main()
         else
         {
             int max = 0;
-            for(int i=0; i<(n%2==0?n/2:(n/2)+1);++i)
+            int sum = 0;
+            for(int i=0;i<(n+1)/2;i++)
+                sum += a[i];
+            if(sum>max)
+                max = sum;
+            for(int i=1; i<(n/2)+1;++i)
             {
-                int sum = 0;
-                for(int j=i,k=0;k<(n%2==0?n/2:(n/2)+1);j++,k++)
-                {
-                    sum = sum + a[j];
-                }
+                sum = sum + a[i+(n+1)/2-1] - a[i-1];
                 if(sum>max)
                 {
                     max = sum;
