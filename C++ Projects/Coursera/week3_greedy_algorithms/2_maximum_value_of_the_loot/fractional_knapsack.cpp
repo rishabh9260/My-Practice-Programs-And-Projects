@@ -11,7 +11,6 @@ double get_optimal_value(int capacity, vector<int> weights, vector<int> values, 
 {
   double value = 0.0;
 
-  // write your code here
   vector<pair<double, int>> per_unit(n);
   for (int i = 0; i < n; i++)
   {
