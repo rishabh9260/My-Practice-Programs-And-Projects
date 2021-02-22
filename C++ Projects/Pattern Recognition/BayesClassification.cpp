@@ -80,7 +80,7 @@ int main()
         cout << endl;
     }
 
-    cout<<"\n\nThe Probabilities are: \n";
+    cout << "\n\nThe Probabilities are: \n";
     vector<vector<double>> probabilities(v, vector<double>(c, 0));
     for (int i = 0; i < v; i++)
     {
@@ -89,16 +89,16 @@ int main()
             double prb = ((double)mat[i][j]) / c_sum[j];
             prb *= (((double)c_sum[j]) / n) / (((double)v_sum[i]) / n);
             probabilities[i][j] = prb;
-            cout << setprecision(3) << "P(" << classes[j] << " | " << values[i] << ") = " << prb << '\t';
+            cout << setprecision(3) << "P(" << classes[j] << " | " << values[i] << ") = " << prb << "\n";
         }
         cout << endl;
     }
 
     string test;
-    cout<<"\n\nEnter the value of feature for getting the class: ";
-    cin>>test;
+    cout << "\n\nEnter the value of " << feature << " for getting the class: ";
+    cin >> test;
     int x = getIndex(values, test);
     int y = max_element(probabilities[x].begin(), probabilities[x].end()) - probabilities[x].begin();
-    cout<<"The class "<<test<<" belongs to is \""<<classes[y]<<"\"\n\n";
+    cout << "The class " << test << " belongs to is \"" << classes[y] << "\"\n\n";
     return 0;
 }
