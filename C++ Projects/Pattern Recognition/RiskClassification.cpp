@@ -19,7 +19,7 @@ void TextClassification::risk_calculation(const vector<string> &actions, const s
 {
     auto probabilities = this->classify(test_data);
     vector<vector<double>> loss(_class_data.size(), vector<double>(actions.size(), 0));
-    cout << "Enter Loss Function Values\n";
+    cout << "\nEnter Loss Function Values\n";
     size_t i(0), j(0);
     for (const auto &[x, y] : data)
     {
@@ -40,9 +40,9 @@ void TextClassification::risk_calculation(const vector<string> &actions, const s
             risk[i] += loss[j][i] * probabilities[j];
     }
 
-    cout << "\n\nRisk functions valus are\n";
+    cout << "\n\nRisk functions valus are\n\n";
     for (size_t i = 0; i < actions.size(); i++)
-        cout << "Risk(" << actions[i] << " | "
+        cout << "R(" << actions[i] << " | "
              << "X): " << risk[i] << '\n';
     size_t index = min_element(risk.begin(), risk.end()) - risk.begin();
     cout << "\nThus the action that will be taken is Action " << index + 1 << " that is \'" << actions[index] << "\'\n\n";
@@ -55,6 +55,7 @@ vector<double> TextClassification::classify(const string &test_data)
     string s, final_class;
     double max_probability = 0;
 
+    cout << endl;
     for (auto &[_class, _map] : data)
     {
         stringstream str(test_data);
@@ -74,7 +75,7 @@ vector<double> TextClassification::classify(const string &test_data)
         }
         i++;
     }
-    cout << "\nThe inputted text will belong to " << final_class << " class";
+    cout << "\nThe inputted text will belong to " << final_class << " class.\n";
     return probabilities;
 }
 
@@ -138,7 +139,7 @@ int main()
     for (size_t i = 0; i < actions_count; i++)
     {
         string x;
-        cout << "\tEnter the action " << i + 1 << ": ";
+        cout << "\nEnter the action " << i + 1 << ": ";
         cin >> ws;
         getline(cin, x, '\n');
         actions.emplace_back(x);
